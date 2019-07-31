@@ -1,0 +1,4 @@
+2019-07-23 00:24:26,287 - INFO - Server was started with localhost:8000
+2019-07-23 00:26:14,976 - INFO - Server was started with localhost:8000
+2019-07-23 00:27:05,983 - INFO - Client was connected with 127.0.0.1:59820
+2019-07-23 00:27:09,131 - ERROR - Controller test not found

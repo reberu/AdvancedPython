@@ -1,0 +1,7 @@
+
+2019-07-24 00:22:00,508 - INFO - Client was started
+2019-07-24 00:22:02,996 - INFO - Client send data: data
+2019-07-24 00:22:02,997 - INFO - {"action": "action", "time": 1563895322.996819, "data": "Action with name action not supported", "code": 404}
+2019-07-24 00:32:37,350 - INFO - Client was started
+2019-07-24 00:32:44,226 - INFO - Client send data: data
+2019-07-24 00:32:44,237 - INFO - {"action": "data", "time": 1563895964.226775, "data": "Action with name data not supported", "code": 404}
