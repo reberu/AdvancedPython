@@ -30,6 +30,7 @@ if args.config:
 
 host, port = (default_config.get('host'), default_config.get('port'))
 
+
 # logger = logging.getLogger('main')
 # logger.setLevel(logging.DEBUG)
 
@@ -50,18 +51,22 @@ logging.basicConfig(
     ]
 )
 
+
 try:
 
     sock = socket()
     sock.bind((host, port,))
     sock.listen(5)
 
+
     logging.info(f'Server was started with {host}:{port}')
+
 
     while True:
         client, address = sock.accept()
 
         logging.info(f'Clietn was connected with {address[0]}:{address[1]}')
+
 
         b_request = client.recv(default_config.get('buffersize'))
         request = json.loads(b_request.decode())
@@ -81,6 +86,7 @@ try:
                 response = make_response(request, 404, f'Action with name {action_name} not supported')
         else:
             logging.error(f'Controller wrong request: {request}')
+
             response = make_response(request, 400, 'wrong request format')
 
         client.send(
@@ -90,4 +96,6 @@ try:
         client.close()
 
 except KeyboardInterrupt:
+
     logging.info('Server shutdown')
+

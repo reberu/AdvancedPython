@@ -1,6 +1,8 @@
 import yaml
 import json
+
 import hashlib
+
 from socket import socket
 from datetime import datetime
 from argparse import ArgumentParser
@@ -31,6 +33,7 @@ sock.connect(
     (default_config.get('host'), default_config.get('port'))
 )
 
+
 print(f'Client was started')
 
 hash_obj = hashlib.sha256()
@@ -51,6 +54,8 @@ request = {
 s_request = json.dumps(request)
 
 sock.send(s_request.encode())
+
 print(f'Client send data: {data}')
 b_response = sock.recv(default_config.get('buffersize'))
 print(b_response.decode())
+
