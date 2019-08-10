@@ -22,11 +22,3 @@ def login_required(func):
             return make_response(request, 403, 'Access denied')
         return func(request, *args, **kwargs)
     return wrapper
-
-
-def log(func):
-    @wraps(func)
-    def wrapper(request, *args, **kwargs):
-        logger.debug(f'Вызвана функция {func.__name__}')
-        return func(request, *args, **kwargs)
-    return wrapper
