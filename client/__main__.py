@@ -1,7 +1,8 @@
 import yaml
 import json
-import logging
-from log.client_log_config import add_info
+
+import hashlib
+
 from socket import socket
 from datetime import datetime
 from argparse import ArgumentParser
@@ -32,7 +33,13 @@ sock.connect(
     (default_config.get('host'), default_config.get('port'))
 )
 
-add_info(f'Client was started')
+
+print(f'Client was started')
+
+hash_obj = hashlib.sha256()
+hash_obj.update(
+    str(datetime.now().timestamp()).encode()
+)
 
 action = input('Enter action: ')
 data = input('Enter data: ')
@@ -40,12 +47,15 @@ data = input('Enter data: ')
 request = {
     'action': action,
     'time': datetime.now().timestamp(),
-    'data': data
+    'data': data,
+    'token': hash_obj.hexdigest()
 }
 
 s_request = json.dumps(request)
 
 sock.send(s_request.encode())
-add_info(f'Client send data: {data}')
+
+print(f'Client send data: {data}')
 b_response = sock.recv(default_config.get('buffersize'))
-add_info(b_response.decode())
+print(b_response.decode())
+
