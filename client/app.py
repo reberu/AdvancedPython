@@ -2,8 +2,10 @@ import zlib
 import json
 import hashlib
 import threading
+import logging
 from datetime import datetime
 from socket import socket
+from protocol import make_request
 
 
 class Application:
@@ -12,46 +14,50 @@ class Application:
         self._port = port
         self._buffersize = buffersize
 
-        self._sock = socket()
+        self._sock = None
 
-    def connect(self, backlog=5):
+    def __enter__(self):
+        if not self._sock:
+            self._sock = socket()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        message = 'Client shutdown'
+        if exc_type:
+            if not exc_type is KeyboardInterrupt:
+                message = 'Client stopped with error'
+        logging.info(message)
+        self._sock.close()
+        return True
+
+    def connect(self):
+        if not self._sock:
+            self._sock = socket()
         self._sock.connect((self._host, self._port))
 
     def read(self):
         while True:
             comporessed_response = self._sock.recv(self._buffersize)
             b_response = zlib.decompress(comporessed_response)
-            print(b_response.decode())
+            logging.info(b_response.decode())
+
+    def write(self):
+        hash_obj = hashlib.sha256()
+        hash_obj.update(
+            str(datetime.now().timestamp()).encode()
+        )
+
+        action = input('Enter action: ')
+        data = input('Enter data: ')
+
+        request = make_request(action, data, hash_obj.hexdigest())
+        s_request = json.dumps(request)
+        b_request = zlib.compress(s_request.encode())
+        self._sock.send(b_request)
 
     def run(self):
-        print(f'Client was started')
-        try:
-            read_thread = threading.Thread(
-                target=self.read, args=(self._sock, self._buffersize,)
-            )
-            read_thread.start()
+        read_thread = threading.Thread(target=self.read)
+        read_thread.start()
 
-            while True:
-                hash_obj = hashlib.sha256()
-                hash_obj.update(
-                    str(datetime.now().timestamp()).encode()
-                )
-
-                action = input('Enter action: ')
-                data = input('Enter data: ')
-
-                request = {
-                    'action': action,
-                    'time': datetime.now().timestamp(),
-                    'data': data,
-                    'token': hash_obj.hexdigest()
-                }
-
-                s_request = json.dumps(request)
-                b_request = zlib.compress(s_request.encode())
-                self._sock.send(b_request)
-                print(f'Client send data: {data}')
-
-        except KeyboardInterrupt:
-            self._sock.close()
-            print('Client shutdown')
+        while True:
+            self.write()

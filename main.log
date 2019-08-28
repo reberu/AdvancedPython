@@ -12,3 +12,7 @@
 2019-08-15 17:47:26,193 - ERROR - Controller dsacxvk;vkfd; not found
 2019-08-15 17:47:26,935 - ERROR - Controller fef not found
 2019-08-15 17:47:28,220 - ERROR - Controller dsfdsfds not found
+2019-08-28 17:39:56,416 - INFO - Server was started with localhost:8000
+2019-08-28 17:56:53,308 - INFO - Client was connected with 127.0.0.1:65352 | Connections: [<socket.socket fd=508, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('127.0.0.1', 65352)>]
+2019-08-28 17:57:21,790 - INFO - Server was started with localhost:8000
+2019-08-28 17:57:27,011 - INFO - Client was connected with 127.0.0.1:65358 | Connections: [<socket.socket fd=496, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 8000), raddr=('127.0.0.1', 65358)>]
