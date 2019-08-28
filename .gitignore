@@ -4,3 +4,7 @@ __pycache__
 project.code-workspace
 .coverage
 *.log
+.idea
+.DS_Store
+*.db
+*.sqlite

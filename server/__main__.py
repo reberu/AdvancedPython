@@ -1,15 +1,10 @@
 import yaml
-import json
-import select
 import logging
-import threading
-from socket import socket
 from argparse import ArgumentParser
 
 from app import Application
-from protocol import validate_request, make_response
 from handlers import handle_default_request
-from resolvers import resolve
+from database import database_metadata, engine
 
 
 parser = ArgumentParser()
@@ -17,6 +12,10 @@ parser = ArgumentParser()
 parser.add_argument(
     '-c', '--config', type=str,
     required=False, help='Sets config file path'
+)
+
+parser.add_argument(
+    '-m', '--migrate', action='store_true'
 )
 
 args = parser.parse_args()
@@ -32,21 +31,21 @@ if args.config:
         file_config = yaml.load(file, Loader=yaml.Loader)
         default_config.update(file_config)
 
+if args.migrate:
+    database_metadata.create_all(engine)
+
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('main.log', encoding='utf-8'),
+        logging.FileHandler('server.log', encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
 
-app = Application(
-    default_config.get('host'),
-    default_config.get('port'),
-    default_config.get('buffersize'),
-    handle_default_request
-)
-
-app.bind()
-app.run()
+with Application(default_config.get('host'),
+                 default_config.get('port'),
+                 default_config.get('buffersize'),
+                 handle_default_request) as app:
+    app.bind()
+    app.run()

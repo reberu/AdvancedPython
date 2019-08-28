@@ -11,11 +11,26 @@ class Application:
         self._handler = handler
         self._buffersize = buffersize
 
-        self._sock = socket()
+        self._sock = None
         self._requests = list()
         self._connections = list()
 
+    def __enter__(self):
+        if not self._sock:
+            self._sock = socket()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        message = 'Server shutdown'
+        if exc_type:
+            if not exc_type is KeyboardInterrupt:
+                message = 'Server stopped with error'
+        logging.info(message)
+        return True
+
     def bind(self, backlog=5):
+        if not self._sock:
+            self._sock = socket()
         self._sock.bind((self._host, self._port))
         self._sock.settimeout(0)
         self._sock.listen(backlog)
@@ -45,31 +60,27 @@ class Application:
             self._connections.remove(sock)
 
     def run(self):
-        try:
-            logging.info(f'Server was started with {self._host}:{self._port}')
+        logging.info(f'Server was started with {self._host}:{self._port}')
 
-            while True:
-                self.accept()
-                if self._connections:
-                    rlist, wlist, xlist = select.select(
-                        self._connections, self._connections, self._connections, 0
+        while True:
+            self.accept()
+            if self._connections:
+                rlist, wlist, xlist = select.select(
+                    self._connections, self._connections, self._connections, 0
+                )
+
+                for r_client in rlist:
+                    r_thread = threading.Thread(
+                        target=self.read, args=(r_client,)
                     )
+                    r_thread.start()
 
-                    for r_client in rlist:
-                        r_thread = threading.Thread(
-                            target=self.read, args=(r_client,)
+                if self._requests:
+                    b_request = self._requests.pop()
+                    b_response = self._handler(b_request)
+
+                    for w_client in wlist:
+                        w_thread = threading.Thread(
+                            target=self.write, args=(w_client, b_response)
                         )
-                        r_thread.start()
-
-                    if self._requests:
-                        b_request = self._requests.pop()
-                        b_response = self._handler(b_request)
-
-                        for w_client in wlist:
-                            w_thread = threading.Thread(
-                                target=self.write, args=(w_client, b_response)
-                            )
-                            w_thread.start()
-
-        except KeyboardInterrupt:
-            logging.info('Server shutdown')
+                        w_thread.start()
