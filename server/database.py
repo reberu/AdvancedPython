@@ -1,7 +1,14 @@
 from sqlalchemy import MetaData
 from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+from settings import CONNECTION_STRING
 
 
-engine = create_engine('sqlite:///default.db')
+#engine = create_engine('sqlite:///default.db')
 
-database_metadata = MetaData()
+#database_metadata = MetaData()
+
+engine = create_engine(CONNECTION_STRING)
+Base = declarative_base(metadata=MetaData(bind=engine))
+Session = sessionmaker(bind=engine)
