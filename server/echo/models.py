@@ -1,23 +1,21 @@
-from sqlalchemy.orm import mapper
-from sqlalchemy import Table, Column, Integer, DateTime, String
+from datetime import datetime
+from sqlalchemy import Column, Integer, DateTime, String, ForeignKey
+from sqlalchemy.orm import relationship
 
-from database import database_metadata
+from auth.models import User
 
-
-message_table = Table(
-    'messages', database_metadata,
-    Column('id', Integer, primary_key=True),
-    Column('content', String),
-    Column('user', String),
-    Column('created', DateTime)
-)
+from database import Base
 
 
-class Message:
-    def __init__(self, content, user, date):
-        self.content = content
-        self.user = user
-        self.date = date
+class Message(Base):
+    __tablename__ = 'messages'
 
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    data = Column(String, nullable=True)
+    created = Column(DateTime, default=datetime.now())
+    user_id = Column(Integer, ForeignKey('users.id'))
+    user = relationship('User', back_populates='messages')
 
-mapper(Message, message_table)
+    @property
+    def is_anonimous(self):
+        return self.user is None
