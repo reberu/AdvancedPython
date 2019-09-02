@@ -3,9 +3,11 @@ import json
 import hashlib
 import threading
 import logging
+import sys
 from datetime import datetime
 from socket import socket
 from protocol import make_request
+from PyQt5.QtWidgets import QApplication, QMainWindow
 
 
 class Application:
@@ -55,9 +57,15 @@ class Application:
         b_request = zlib.compress(s_request.encode())
         self._sock.send(b_request)
 
+    def render(self):
+        window = QMainWindow()
+
+        window.show()
+
     def run(self):
         read_thread = threading.Thread(target=self.read)
         read_thread.start()
 
-        while True:
-            self.write()
+        app = QApplication(sys.argv)
+
+        sys.exit(app.exec())

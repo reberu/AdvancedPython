@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53c1a23f-a360-4c17-ab75-faa0e459f324" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/auth/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/auth/actions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/auth/controllers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/auth/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/marbleperformer-advancedpython-2019-06-12-f16c27686498.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/marbleperformer-advancedpython-2019-06-12-f16c27686498.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/echo/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/echo/actions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/echo/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/echo/controllers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/echo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/echo/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="PyQT_02" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,11 +46,13 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client" />
+      <recent name="$PROJECT_DIR$/server" />
       <recent name="F:\Projects\Geekbrains\AdvancedPython\marbleperformer-advancedpython-2019-06-12-f16c27686498\marbleperformer-advancedpython-2019-06-12-f16c27686498\client" />
     </key>
   </component>
@@ -65,7 +68,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.__main__ (1)">
+  <component name="RunManager" selected="Docker.server/Dockerfile">
     <configuration name="__main__ (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="marbleperformer-advancedpython-2019-06-12-f16c27686498" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,6 +132,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="server/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="buildCliOptions" value="" />
+          <option name="buildOnly" value="true" />
+          <option name="command" value="" />
+          <option name="containerName" value="" />
+          <option name="entrypoint" value="" />
+          <option name="imageTag" value="" />
+          <option name="commandLineOptions" value="" />
+          <option name="sourceFilePath" value="server/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="Unittests in test_controllers.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="marbleperformer-advancedpython-2019-06-12-f16c27686498" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,12 +163,23 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.server/Dockerfile" />
         <item itemvalue="Python.__main__ (1)" />
         <item itemvalue="Python.__main__" />
         <item itemvalue="Python.test_make_response" />
         <item itemvalue="Python tests.Unittests in test_controllers.py" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
