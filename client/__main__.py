@@ -1,8 +1,9 @@
 import yaml
+import sys
 import logging
 from argparse import ArgumentParser
-from app import Application
 
+from app import Application
 
 parser = ArgumentParser()
 
@@ -35,5 +36,5 @@ logging.basicConfig(
 with Application(default_config.get('host'),
                  default_config.get('port'),
                  default_config.get('buffersize')) as app:
-    app.connect()
+    #    app.connect()
     app.run()

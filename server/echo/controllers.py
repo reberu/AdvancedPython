@@ -1,7 +1,7 @@
 from functools import reduce
 
 from protocol import make_response
-from database import Session
+from database import Session, session_scope
 from decorators import logged
 
 from .models import Message
@@ -11,7 +11,7 @@ from .models import Message
 def echo_controller(request):
     data = request.get('data')
     session = Session()
-    message = Message(data=data)
+    message = Message(data=data.get('text'))
     session.add(message)
     session.commit()
     session.close()
@@ -19,13 +19,12 @@ def echo_controller(request):
 
 
 def delete_message_controller(request):
-    message_id = request.get('message_id')
-    session = Session()
-    message = session.query(Message).filter_by(id=message_id).first()
-    session.delete(message)
-    session.commit()
-    session.close()
-    return make_response(request, 200)
+    data = request.get('data')
+    message_id = data.get('message_id')
+    with session_scope() as session:
+        message = session.query(Message).filter_by(id=message_id).first()
+        session.delete(message)
+        return make_response(request, 200)
 
 
 def update_message_controller(request):
