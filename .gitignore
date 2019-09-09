@@ -2,6 +2,7 @@ venv
 __pycache__
 .ipynb_checkpoints
 project.code-workspace
+docs/build
 .coverage
 *.log
 .idea

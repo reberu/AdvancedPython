@@ -8,3 +8,5 @@ pytest-cov
 fabric3
 tabulate
 sqlalchemy
+pycryptodome
+sphinx

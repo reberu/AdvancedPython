@@ -4,3 +4,4 @@ chardet
 requests
 fabric3
 tabulate
+utils
