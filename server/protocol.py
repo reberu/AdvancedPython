@@ -1,3 +1,7 @@
+"""
+Protocol API Documentation
+"""
+
 def validate_request(raw):
     if 'action' in raw and 'time' in raw:
         return True

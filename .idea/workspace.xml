@@ -1,45 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53c1a23f-a360-4c17-ab75-faa0e459f324" name="Default Changelist" comment="Реализован docker контейнер серверного и клиентского приложения">
-      <change afterPath="$PROJECT_DIR$/client/form.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/messenger.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/make.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/conf.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/auth/decorators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/auth/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/auth/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/security/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/security/actions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/security/middlewares.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/security/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/security/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="53c1a23f-a360-4c17-ab75-faa0e459f324" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/docs/source/protocol/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/protocol/transport.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/source/protocol/validation.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/protocol.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/protocol.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/server/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/auth/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth/controllers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/auth/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/echo/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/echo/controllers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/middlewares.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/servererrors/controllers.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/servererrors/controllers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/source/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/source/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/auth/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/auth/decorators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/protocol.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/protocol.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="PyQT05" />
+        <entry key="$PROJECT_DIR$" value="PyQT07" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,10 +44,13 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/source" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client" />
       <recent name="$PROJECT_DIR$/server" />
@@ -173,7 +148,7 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in test_controllers.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in /home/floyd/PycharmProjects/AdvancedPython/server/echo/test_controllers.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="marbleperformer-advancedpython-2019-06-12-f16c27686498" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -193,7 +168,7 @@
         <item itemvalue="Python.__main__ (1)" />
         <item itemvalue="Python.__main__" />
         <item itemvalue="Python.test_make_response" />
-        <item itemvalue="Python tests.Unittests in test_controllers.py" />
+        <item itemvalue="Python tests.Unittests in /home/floyd/PycharmProjects/AdvancedPython/server/echo/test_controllers.py" />
       </list>
     </recent_temporary>
   </component>
@@ -246,7 +221,21 @@
       <option name="project" value="LOCAL" />
       <updated>1567425061423</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Реализован декоратор @login_required в auth.&#10;Реализовано хранение паролей в БД">
+      <created>1568036033672</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1568036033673</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Реализован docker контейнер серверного и клиентского приложения">
+      <created>1568036096676</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1568036096676</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -298,6 +287,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Дескрипторы и метаклассы" />
     <MESSAGE value="Создана модель Message" />
+    <MESSAGE value="Реализован декоратор @login_required в auth.&#10;Реализовано хранение паролей в БД" />
     <MESSAGE value="Реализован docker контейнер серверного и клиентского приложения" />
     <option name="LAST_COMMIT_MESSAGE" value="Реализован docker контейнер серверного и клиентского приложения" />
   </component>
